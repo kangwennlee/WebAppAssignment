@@ -22,29 +22,30 @@
 
 			<!-- Header -->
 				<header id="header">
-					<h1 id="logo"><asp:HyperLink ID="HyperLink2" runat="server" NavigateUrl="~">Landed</asp:HyperLink></h1>
+					<h1 id="logo"><asp:HyperLink ID="HyperLink2" runat="server" NavigateUrl="~">NATIONAL GALLERY SINGAPORE</asp:HyperLink></h1>
 					<nav id="nav">
 						<ul>
-							<li><asp:HyperLink ID="HyperLink3" runat="server" NavigateUrl="~">Home</asp:HyperLink></li>
+							<li><asp:HyperLink ID="HyperLink3" runat="server" NavigateUrl="~">What's On</asp:HyperLink></li>
 							<li>
-								<asp:HyperLink ID="HyperLink4" runat="server" NavigateUrl="~">Layout</asp:HyperLink>
+								<asp:HyperLink ID="HyperLink4" runat="server" NavigateUrl="~">Plan Your Visit</asp:HyperLink>
 								<ul>
-									<li><a href="left-sidebar.html">Left Sidebar</a></li>
-									<li><a href="right-sidebar.html">Right Sidebar</a></li>
-									<li><a href="no-sidebar.html">No Sidebar</a></li>
+									<li><asp:HyperLink ID="HyperLink6" runat="server" NavigateUrl="~">What You Need to Know</asp:HyperLink></li>
+									<li><asp:HyperLink ID="HyperLink7" runat="server" NavigateUrl="~">Tours</asp:HyperLink></li>
+									<li><asp:HyperLink ID="HyperLink8" runat="server" NavigateUrl="~">Shop and Dine</asp:HyperLink></li>
 									<li>
-										<asp:HyperLink ID="HyperLink5" runat="server" NavigateUrl="~">SubMenu</asp:HyperLink>
+										<asp:HyperLink ID="HyperLink5" runat="server" NavigateUrl="~">About The Gallery</asp:HyperLink>
 										<ul>
-											<li><a href="#">Option 1</a></li>
-											<li><a href="#">Option 2</a></li>
-											<li><a href="#">Option 3</a></li>
-											<li><a href="#">Option 4</a></li>
+											<li><asp:HyperLink ID="HyperLink9" runat="server" NavigateUrl="~">Overview</asp:HyperLink></li>
+											<li><asp:HyperLink ID="HyperLink10" runat="server" NavigateUrl="~">News</asp:HyperLink></li>
+											<li><asp:HyperLink ID="HyperLink11" runat="server" NavigateUrl="~">Awards</asp:HyperLink></li>
+											<li><asp:HyperLink ID="HyperLink12" runat="server" NavigateUrl="~">Carrers</asp:HyperLink></li>
 										</ul>
 									</li>
 								</ul>
 							</li>
-							<li><a href="elements.html">Elements</a></li>
+							<li><asp:HyperLink ID="HyperLink13" runat="server" NavigateUrl="~">Explore Our Art</asp:HyperLink></li>
 							<li><asp:HyperLink ID="HyperLink1" runat="server" class="button special" NavigateUrl="~/SignUp.aspx">Sign Up</asp:HyperLink></li>
+                            <li><asp:HyperLink ID="HyperLink14" runat="server" class="button special" NavigateUrl="~/Login.aspx">Login</asp:HyperLink></li>
 						</ul>
 					</nav>
 				</header>
