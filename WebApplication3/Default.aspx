@@ -5,10 +5,11 @@
     <section id="banner">
         <div class="content">
             <header>
-                <h2>The future has landed</h2>
+                <h2>The Art and Soul of Southeast Asia</h2>
                 <p>
-                    And there are no hoverboards or flying cars.<br />
-                    Just apps. Lots of mother flipping apps.
+                    Discover the world's largest collection of<br />
+                    modern Southeast Asian art within one of<br />
+                    Singapore's most significant buildings
                 </p>
             </header>
             <span class="image">

@@ -79,7 +79,7 @@
     <Content Include="assets\sass\libs\_skel.scss" />
     <Content Include="assets\sass\libs\_vars.scss" />
     <Content Include="Default.aspx" />
-    <Content Include="Home.aspx" />
+    <Content Include="LoginHome.aspx" />
     <Content Include="Login.aspx" />
     <None Include="packages.config" />
     <Content Include="Main.Master" />
@@ -117,12 +117,12 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Home.aspx.cs">
-      <DependentUpon>Home.aspx</DependentUpon>
+    <Compile Include="LoginHome.aspx.cs">
+      <DependentUpon>LoginHome.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Home.aspx.designer.cs">
-      <DependentUpon>Home.aspx</DependentUpon>
+    <Compile Include="LoginHome.aspx.designer.cs">
+      <DependentUpon>LoginHome.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SignUp.aspx.cs">
