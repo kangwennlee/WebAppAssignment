@@ -7,16 +7,16 @@
                 <h3 style="text-align: center">Sign Up</h3>
                 <div class="row uniform 50%">
                     <div class="6u 12u$(medium)">
-                        <asp:TextBox ID="name" name="name" runat="server" placeholder="Name"></asp:TextBox>
+                        <asp:TextBox ID="txtname" name="name" runat="server" placeholder="Name"></asp:TextBox>
                     </div>
                     <div class="6u 12u$(medium)">
-                        <asp:TextBox ID="email" name="email" runat="server" placeholder="Email"></asp:TextBox>
+                        <asp:TextBox ID="txtemail" name="email" runat="server" placeholder="Email"></asp:TextBox>
                     </div>
                     <div class="6u 12u$(medium)">
-                        <asp:TextBox ID="password" TextMode="Password" name="password" runat="server" placeholder="Password"></asp:TextBox>
+                        <asp:TextBox ID="txtpassword" TextMode="Password" name="password" runat="server" placeholder="Password"></asp:TextBox>
                     </div>
                     <div class="6u 12u$(medium)">
-                        <asp:TextBox ID="confirmPassword" TextMode="Password" name="confirmPassword" runat="server" placeholder="Confirm Password"></asp:TextBox>
+                        <asp:TextBox ID="txtconfirmPassword" TextMode="Password" name="confirmPassword" runat="server" placeholder="Confirm Password"></asp:TextBox>
                     </div>
                     <div class="12u$ 12u$(medium)">
                         <asp:RadioButtonList ID="userType" runat="server" AutoPostBack="true" RepeatDirection="Horizontal">
