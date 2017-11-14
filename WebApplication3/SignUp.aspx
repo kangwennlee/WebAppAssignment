@@ -7,10 +7,10 @@
                 <h3 style="text-align: center">Sign Up</h3>
                 <div class="row uniform 50%">
                     <div class="6u 12u$(medium)">
-                        <asp:TextBox ID="txtname" name="name" runat="server" placeholder="Name"></asp:TextBox>
+                        <asp:TextBox ID="txtname" name="name" runat="server" placeholder="Username"></asp:TextBox>
                     </div>
                     <div class="6u 12u$(medium)">
-                        <asp:TextBox ID="txtemail" name="email" runat="server" placeholder="Email"></asp:TextBox>
+                        <asp:TextBox ID="txtemail" TextMode="Email" name="email" runat="server" placeholder="Email"></asp:TextBox>
                     </div>
                     <div class="6u 12u$(medium)">
                         <asp:TextBox ID="txtpassword" TextMode="Password" name="password" runat="server" placeholder="Password"></asp:TextBox>
@@ -19,7 +19,7 @@
                         <asp:TextBox ID="txtconfirmPassword" TextMode="Password" name="confirmPassword" runat="server" placeholder="Confirm Password"></asp:TextBox>
                     </div>
                     <div class="12u$ 12u$(medium)">
-                        <asp:RadioButtonList ID="userType" runat="server" AutoPostBack="true" RepeatDirection="Horizontal">
+                        <asp:RadioButtonList ID="userType" runat="server" RepeatDirection="Horizontal">
                             <asp:ListItem>Customer</asp:ListItem>
                             <asp:ListItem>Artist</asp:ListItem>
                         </asp:RadioButtonList>
@@ -36,8 +36,15 @@
                                 <input type="reset" value="Reset" /></li>
                         </ul>
                     </div>
+                    <asp:Label ID="txtError" runat="server" Text=""></asp:Label>
                 </div>
             </section>
         </div>
     </div>
+    <script>
+    function save() 
+    {
+        return confirm('Are you sure you want to continue?');            
+    }
+</script>
 </asp:Content>

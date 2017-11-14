@@ -19,11 +19,11 @@ namespace WebApplication3
 
         protected void SignUpBtn_Click(object sender, EventArgs e)
         {
-            if (txtpassword.Text == txtconfirmPassword.Text)
+            if (txtpassword.Text == txtconfirmPassword.Text && txtpassword.Text.Length > 6 && txtname.Text.Length > 6 && txtname.Text != null && txtemail.Text != null && txtpassword != null &&txtconfirmPassword!=null)
             {
                 string strCon = ConfigurationManager.ConnectionStrings["WebConfigConString"].ConnectionString;
                 SqlConnection con = new SqlConnection(strCon);
-                SqlCommand cmd = new SqlCommand("sp_insert", con);
+                SqlCommand cmd = new SqlCommand("sp_signup", con);
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.Parameters.AddWithValue("name", txtname.Text);
                 cmd.Parameters.AddWithValue("password", txtpassword.Text);
@@ -32,13 +32,13 @@ namespace WebApplication3
                 int k = cmd.ExecuteNonQuery();
                 if (k != 0)
                 {
-                    Response.Redirect("LoginHome.aspx");
+                    Response.Redirect("UserList.aspx");
                 }
                 con.Close();
             }
             else
             {
-               
+                txtError.Text = "Error. Please re-enter your details";
             }
             
         }
