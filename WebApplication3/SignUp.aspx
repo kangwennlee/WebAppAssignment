@@ -19,7 +19,7 @@
                         <asp:TextBox ID="txtconfirmPassword" TextMode="Password" name="confirmPassword" runat="server" placeholder="Confirm Password"></asp:TextBox>
                     </div>
                     <div class="12u$ 12u$(medium)">
-                        <asp:RadioButtonList ID="userType" runat="server" RepeatDirection="Horizontal">
+                        <asp:RadioButtonList ID="rbluserType" runat="server" RepeatDirection="Horizontal">
                             <asp:ListItem>Customer</asp:ListItem>
                             <asp:ListItem>Artist</asp:ListItem>
                         </asp:RadioButtonList>

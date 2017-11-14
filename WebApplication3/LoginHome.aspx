@@ -4,7 +4,7 @@
     <div id="main" class="wrapper style1">
         <div class="container">
             <header class="major">
-                <h2>Welcome back!</h2>
+                <h2>Welcome back <asp:Label ID="Label1" runat="server" Text=""></asp:Label> !</h2>
                 <p>You can manage your arts here</p>
             </header>
             <!-- Image -->
