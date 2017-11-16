@@ -11,6 +11,16 @@ namespace WebApplication3
     {
         protected void Application_Start(object sender, EventArgs e)
         {
+            if (!Roles.RoleExists("Admin"))
+                Roles.CreateRole("Admin");
+
+            if (Membership.FindUsersByName("admin@admin.com").Count == 0)
+            {
+                Membership.CreateUser("admin@admin.com", "abc12345");
+            }
+
+            if (!Roles.IsUserInRole("admin@admin.com", "Admin"))
+                Roles.AddUserToRole("admin@admin.com", "Admin");
         }
     }
 }

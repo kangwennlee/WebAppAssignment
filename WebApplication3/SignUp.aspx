@@ -27,7 +27,7 @@
                                         <asp:RequiredFieldValidator ID="ConfirmPasswordRequired" runat="server" ControlToValidate="ConfirmPassword" ErrorMessage="Confirm Password is required." ToolTip="Confirm Password is required." ValidationGroup="CreateUserWizard1">*</asp:RequiredFieldValidator>
                                     </div>
                                     <div class="12u$ 12u$(medium)">
-                                        <asp:RadioButtonList ID="UserType" runat="server" RepeatDirection="Horizontal">
+                                        <asp:RadioButtonList ID="UserType" name="UserType" runat="server" RepeatDirection="Horizontal">
                                             <asp:ListItem>Customer</asp:ListItem>
                                             <asp:ListItem>Artist</asp:ListItem>
                                         </asp:RadioButtonList>

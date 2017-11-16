@@ -4,7 +4,7 @@
     <div id="main" class="wrapper style1">
         <div class="container" style="width: 40%">
             <section>
-                <asp:Login ID="Login1" runat="server" DestinationPageUrl="~/Customer/Profile.aspx">
+                <asp:Login ID="Login1" runat="server">
                     <LayoutTemplate>
                         <h3>Login</h3>
                         <div class="row uniform 50%">
@@ -25,7 +25,7 @@
                             <div class="3u 6u(medium) 12u$(xsmall)">
                                 <ul class="actions">
                                     <li>
-                                        <asp:Button ID="LoginButton" class="button special" runat="server" Text="Login" CommandName="Login" ValidationGroup="Login1" />
+                                        <asp:Button ID="LoginButton" class="button special" runat="server" Text="Login" CommandName="Login" ValidationGroup="Login1" OnClick="LoginButton_Click" />
                                     </li>
                                 </ul>
                             </div>

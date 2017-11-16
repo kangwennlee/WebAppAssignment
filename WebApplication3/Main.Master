@@ -56,7 +56,7 @@
                         <li>
                             <asp:HyperLink ID="HyperLink1" runat="server" class="button special" NavigateUrl="~/SignUp.aspx">Sign Up</asp:HyperLink></li>
                         <li>
-                            <asp:HyperLink ID="HyperLink14" runat="server" class="button special" NavigateUrl="~/Management/Profile.aspx">Login</asp:HyperLink></li>
+                            <asp:HyperLink ID="HyperLink14" runat="server" class="button special" NavigateUrl="~/Login.aspx">Login</asp:HyperLink></li>
                     </ul>
                 </nav>
             </header>
