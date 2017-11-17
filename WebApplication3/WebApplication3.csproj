@@ -84,7 +84,7 @@
     <Content Include="App_Data\Database1_log.ldf">
       <DependentUpon>Database1.mdf</DependentUpon>
     </Content>
-    <Content Include="ArtistProfile.aspx" />
+    <Content Include="Artist\ArtistProfile.aspx" />
     <Content Include="assets\fonts\fontawesome-webfont.eot" />
     <Content Include="assets\fonts\fontawesome-webfont.ttf" />
     <Content Include="assets\fonts\fontawesome-webfont.woff" />
@@ -97,8 +97,10 @@
     <Content Include="assets\sass\libs\_mixins.scss" />
     <Content Include="assets\sass\libs\_skel.scss" />
     <Content Include="assets\sass\libs\_vars.scss" />
+    <Content Include="Customer\WishList.aspx" />
+    <Content Include="Customer\PurchaseHistory.aspx" />
     <Content Include="Default.aspx" />
-    <Content Include="CusProfile.aspx" />
+    <Content Include="Customer\Gallery.aspx" />
     <Content Include="Login.aspx" />
     <Content Include="Customer\Web.config">
       <SubType>Designer</SubType>
@@ -121,6 +123,7 @@
     <None Include="Artist\Web.Release.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
+    <Content Include="Customer\CusMain.Master" />
     <None Include="Customer\Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -156,36 +159,57 @@
     <Content Include="assets\js\skel.min.js" />
     <Content Include="assets\js\util.js" />
     <Content Include="Global.asax" />
-    <Content Include="Role.aspx" />
+    <Content Include="Admin\Role.aspx" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
     <Content Include="SignUp.aspx" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ArtistProfile.aspx.cs">
+    <Compile Include="Artist\ArtistProfile.aspx.cs">
       <DependentUpon>ArtistProfile.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="ArtistProfile.aspx.designer.cs">
+    <Compile Include="Artist\ArtistProfile.aspx.designer.cs">
       <DependentUpon>ArtistProfile.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Customer\CusMain.Master.cs">
+      <DependentUpon>CusMain.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Customer\CusMain.Master.designer.cs">
+      <DependentUpon>CusMain.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Customer\WishList.aspx.cs">
+      <DependentUpon>WishList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Customer\WishList.aspx.designer.cs">
+      <DependentUpon>WishList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Customer\PurchaseHistory.aspx.cs">
+      <DependentUpon>PurchaseHistory.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Customer\PurchaseHistory.aspx.designer.cs">
+      <DependentUpon>PurchaseHistory.aspx</DependentUpon>
     </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="CusProfile.aspx.cs">
-      <DependentUpon>CusProfile.aspx</DependentUpon>
+    <Compile Include="Customer\Gallery.aspx.cs">
+      <DependentUpon>Gallery.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="CusProfile.aspx.designer.cs">
-      <DependentUpon>CusProfile.aspx</DependentUpon>
+    <Compile Include="Customer\Gallery.aspx.designer.cs">
+      <DependentUpon>Gallery.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Role.aspx.cs">
+    <Compile Include="Admin\Role.aspx.cs">
       <DependentUpon>Role.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Role.aspx.designer.cs">
+    <Compile Include="Admin\Role.aspx.designer.cs">
       <DependentUpon>Role.aspx</DependentUpon>
     </Compile>
     <Compile Include="SignUp.aspx.cs">

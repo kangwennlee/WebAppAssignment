@@ -23,15 +23,18 @@ namespace WebApplication3
             String username = Login1.UserName;
             if(Roles.IsUserInRole(username, "Artist"))
             {
-                Server.Transfer("ArtistProfile.aspx", false);
+                FormsAuthentication.RedirectFromLoginPage(username,true);
+                Response.Redirect("ArtistProfile.aspx");
             }
             if (Roles.IsUserInRole(username, "Customer"))
             {
-                Server.Transfer("CusProfile.aspx", false);
+                FormsAuthentication.RedirectFromLoginPage(username, true);
+                Response.Redirect("Customer/Gallery.aspx");
             }
             if (Roles.IsUserInRole(username, "Admin"))
             {
-                Server.Transfer("Role.aspx",true);
+                FormsAuthentication.RedirectFromLoginPage(username, true);
+                Response.Redirect("Role.aspx");
             }
         }
     }
