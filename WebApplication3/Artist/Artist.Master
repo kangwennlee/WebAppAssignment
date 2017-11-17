@@ -1,0 +1,105 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Artist.Master.cs" Inherits="WebApplication3.Artist.Site1" %>
+
+<!DOCTYPE HTML>
+<!--
+	Landed by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+<head>
+    <title>Elements - Landed by HTML5 UP</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
+    <link rel="stylesheet" href="../assets/css/main.css" />
+    <!--[if lte IE 9]><link rel="stylesheet" href="assets/css/ie9.css" /><![endif]-->
+    <!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
+</head>
+<body>
+    <form id="form1" runat="server">
+        <div id="page-wrapper">
+            <!-- Header -->
+            <header id="header">
+                <h1 id="logo">
+                    <asp:HyperLink ID="HyperLink2" runat="server" NavigateUrl="~">National Gallery Singapore</asp:HyperLink></h1>
+                <nav id="nav">
+                    <ul>
+                        <li>
+                            <asp:HyperLink ID="HyperLink3" runat="server" NavigateUrl="~">What's On</asp:HyperLink></li>
+                        <li>
+                            <asp:HyperLink ID="HyperLink4" runat="server" NavigateUrl="~">Plan Your Visit</asp:HyperLink>
+                            <ul>
+                                <li>
+                                    <asp:HyperLink ID="HyperLink6" runat="server" NavigateUrl="~">What You Need to Know</asp:HyperLink></li>
+                                <li>
+                                    <asp:HyperLink ID="HyperLink7" runat="server" NavigateUrl="~">Tours</asp:HyperLink></li>
+                                <li>
+                                    <asp:HyperLink ID="HyperLink8" runat="server" NavigateUrl="~">Shop and Dine</asp:HyperLink></li>
+                                <li>
+                                    <asp:HyperLink ID="HyperLink5" runat="server" NavigateUrl="~">About The Gallery</asp:HyperLink>
+                                    <ul>
+                                        <li>
+                                            <asp:HyperLink ID="HyperLink9" runat="server" NavigateUrl="~">Overview</asp:HyperLink></li>
+                                        <li>
+                                            <asp:HyperLink ID="HyperLink10" runat="server" NavigateUrl="~">News</asp:HyperLink></li>
+                                        <li>
+                                            <asp:HyperLink ID="HyperLink11" runat="server" NavigateUrl="~">Awards</asp:HyperLink></li>
+                                        <li>
+                                            <asp:HyperLink ID="HyperLink12" runat="server" NavigateUrl="~">Carrers</asp:HyperLink></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <asp:HyperLink ID="HyperLink13" runat="server" NavigateUrl="~">Explore Our Art</asp:HyperLink></li>
+                        <li>
+                            <asp:HyperLink ID="HyperLink14" runat="server"><asp:Label ID="Label1" runat="server" Text=""></asp:Label></asp:HyperLink>
+                            <ul>
+                                <li>
+                                    <asp:HyperLink ID="HyperLink15" runat="server">HyperLink</asp:HyperLink></li>
+                                <li>
+                                    <asp:HyperLink ID="HyperLink16" runat="server">HyperLink</asp:HyperLink></li>
+                                <li>
+                                    <asp:LoginStatus ID="LoginStatus1" runat="server"/>
+                                <li>
+                            </ul>
+                        </li>
+                        <li>
+                            <asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl="~/ShoppingCart.aspx"><span class="icon fa-shopping-cart" style="width:30px; height:30px"></span>Shopping Cart</asp:HyperLink></li>
+                    </ul>
+                </nav>
+            </header>
+
+            <!-- Main -->
+            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server"></asp:ContentPlaceHolder>
+            <!-- Footer -->
+            <footer id="footer">
+                <ul class="icons">
+                    <li><a href="#" class="icon alt fa-twitter"><span class="label">Twitter</span></a></li>
+                    <li><a href="#" class="icon alt fa-facebook"><span class="label">Facebook</span></a></li>
+                    <li><a href="#" class="icon alt fa-linkedin"><span class="label">LinkedIn</span></a></li>
+                    <li><a href="#" class="icon alt fa-instagram"><span class="label">Instagram</span></a></li>
+                    <li><a href="#" class="icon alt fa-github"><span class="label">GitHub</span></a></li>
+                    <li><a href="#" class="icon alt fa-envelope"><span class="label">Email</span></a></li>
+                </ul>
+                <ul class="copyright">
+                    <li>&copy; KW. All rights reserved.</li>
+                    <li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+                </ul>
+            </footer>
+
+        </div>
+
+        <!-- Scripts -->
+        <script src="../assets/js/jquery.min.js"></script>
+        <script src="../assets/js/jquery.scrolly.min.js"></script>
+        <script src="../assets/js/jquery.dropotron.min.js"></script>
+        <script src="../assets/js/jquery.scrollex.min.js"></script>
+        <script src="../assets/js/skel.min.js"></script>
+        <script src="../assets/js/util.js"></script>
+        <!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
+        <script src="../assets/js/main.js"></script>
+    </form>
+</body>
+</html>

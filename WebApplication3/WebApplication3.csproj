@@ -117,6 +117,7 @@
     <None Include="Admin\Web.Release.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
+    <Content Include="Artist\Artist.Master" />
     <None Include="Artist\Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -172,6 +173,13 @@
     </Compile>
     <Compile Include="Artist\ArtistProfile.aspx.designer.cs">
       <DependentUpon>ArtistProfile.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Artist\Artist.Master.cs">
+      <DependentUpon>Artist.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Artist\Artist.Master.designer.cs">
+      <DependentUpon>Artist.Master</DependentUpon>
     </Compile>
     <Compile Include="Customer\CusMain.Master.cs">
       <DependentUpon>CusMain.Master</DependentUpon>

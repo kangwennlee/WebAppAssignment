@@ -1,16 +1,8 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="ArtistProfile.aspx.cs" Inherits="WebApplication3.ArtistProfile" %>
+﻿<%@ Page Language="C#" MasterPageFile="Artist.Master" AutoEventWireup="true" CodeBehind="ArtistProfile.aspx.cs" Inherits="WebApplication3.ArtistProfile" %>
 
-<!DOCTYPE html>
-
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head runat="server">
-    <title></title>
-</head>
-<body>
-    <form id="form1" runat="server">
-        <div>
-            <p>HIIII</p>
+<asp:content id="Content3" contentplaceholderid="ContentPlaceHolder1" runat="Server">
+    <div id="main" class="wrapper style1">
+        <div class="container">
+            </div>
         </div>
-    </form>
-</body>
-</html>
+            </asp:content>
