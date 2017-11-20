@@ -11,7 +11,8 @@ namespace WebApplication3.Artist
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            String username = HttpContext.Current.User.Identity.Name;
+            Label1.Text = "Hi, " + username;
         }
     }
 }

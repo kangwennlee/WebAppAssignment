@@ -52,14 +52,16 @@
                             </ul>
                         </li>
                         <li>
-                            <asp:HyperLink ID="HyperLink13" runat="server" NavigateUrl="~">Explore Our Art</asp:HyperLink></li>
+                            <asp:HyperLink ID="HyperLink13" runat="server" NavigateUrl="~/Customer/Gallery.aspx">Explore Our Art</asp:HyperLink></li>
                         <li>
                             <asp:HyperLink ID="HyperLink14" runat="server"><asp:Label ID="Label1" runat="server" Text=""></asp:Label></asp:HyperLink>
                             <ul>
                                 <li>
-                                    <asp:HyperLink ID="HyperLink15" runat="server">HyperLink</asp:HyperLink></li>
+                                    <asp:HyperLink ID="HyperLink15" runat="server" NavigateUrl="~/Customer/updateProfile.aspx">Edit Profile</asp:HyperLink></li>
                                 <li>
-                                    <asp:HyperLink ID="HyperLink16" runat="server">HyperLink</asp:HyperLink></li>
+                                    <asp:HyperLink ID="HyperLink16" runat="server" NavigateUrl="~/Customer/WishList.aspx">Wishlist</asp:HyperLink></li>
+                                <li>
+                                    <asp:HyperLink ID="HyperLink17" runat="server">Purchase History</asp:HyperLink></li>
                                 <li>
                                     <asp:LoginStatus ID="LoginStatus1" runat="server"/>
                                 <li>

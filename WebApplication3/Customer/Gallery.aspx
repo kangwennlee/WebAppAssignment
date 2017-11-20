@@ -5,49 +5,34 @@
         <div class="container">
             <header class="major">
                 <h2>Welcome back <asp:Label ID="Label1" runat="server" Text=""></asp:Label> !</h2>
-                <p>You can manage your arts here</p>
+                <p>You can view our artworks here</p>
             </header>
             <!-- Image -->
-            <section>
-                <h3>Image</h3>
-                <h4>Fit</h4>
-                <div class="box alt">
-                    <div class="row 50% uniform">
-                        <div class="12u$"><span class="image fit">
-                            <img src="images/pic07.jpg" alt="" /></span></div>
-                        <div class="4u  6u(xsmall)"><span class="image fit">
-                            <img src="images/pic02.jpg" alt="" /></span></div>
-                        <div class="4u  6u$(xsmall)"><span class="image fit">
-                            <img src="images/pic03.jpg" alt="" /></span></div>
-                        <div class="4u$ 6u(xsmall)"><span class="image fit">
-                            <img src="images/pic04.jpg" alt="" /></span></div>
-                        <div class="4u  6u$(xsmall)"><span class="image fit">
-                            <img src="images/pic04.jpg" alt="" /></span></div>
-                        <div class="4u  6u(xsmall)"><span class="image fit">
-                            <img src="images/pic02.jpg" alt="" /></span></div>
-                        <div class="4u$ 6u$(xsmall)"><span class="image fit">
-                            <img src="images/pic03.jpg" alt="" /></span></div>
-                        <div class="4u  6u(xsmall)"><span class="image fit">
-                            <img src="images/pic03.jpg" alt="" /></span></div>
-                        <div class="4u  6u$(xsmall)"><span class="image fit">
-                            <img src="images/pic04.jpg" alt="" /></span></div>
-                        <div class="4u$ 6u(xsmall)"><span class="image fit">
-                            <img src="images/pic02.jpg" alt="" /></span></div>
-                        <div class="4u  6u$(xsmall)"><span class="image fit">
-                            <img src="images/pic02.jpg" alt="" /></span></div>
-                        <div class="4u  6u(xsmall)"><span class="image fit">
-                            <img src="images/pic03.jpg" alt="" /></span></div>
-                        <div class="4u$ 6u$(xsmall)"><span class="image fit">
-                            <img src="images/pic04.jpg" alt="" /></span></div>
-                    </div>
-                </div>
 
-                <h4>Left &amp; Right</h4>
-                <p><span class="image left">
-                    <img src="images/pic08.jpg" alt="" /></span>Fringilla nisl. Donec accumsan interdum nisi, quis tincidunt felis sagittis eget. tempus euismod. Vestibulum ante ipsum primis in faucibus vestibulum. Blandit adipiscing eu felis iaculis volutpat ac adipiscing accumsan eu faucibus. Integer ac pellentesque praesent tincidunt felis sagittis eget. tempus euismod. Vestibulum ante ipsum primis in faucibus vestibulum. Blandit adipiscing eu felis iaculis volutpat ac adipiscing accumsan eu faucibus. Integer ac pellentesque praesent. Donec accumsan interdum nisi, quis tincidunt felis sagittis eget. tempus euismod. Vestibulum ante ipsum primis in faucibus vestibulum. Blandit adipiscing eu felis iaculis volutpat ac adipiscing accumsan eu faucibus. Integer ac pellentesque praesent tincidunt felis sagittis eget. tempus euismod. Vestibulum ante ipsum primis in faucibus vestibulum. Blandit adipiscing eu felis iaculis volutpat ac adipiscing accumsan eu faucibus. Integer ac pellentesque praesent. Cras aliquet accumsan curae accumsan arcu amet egestas placerat odio morbi mi adipiscing col morbi felis faucibus in gravida sollicitudin interdum commodo. Ante aliquam vis iaculis accumsan lorem ipsum dolor sit amet nullam. Cras aliquet accumsan curae accumsan arcu amet egestas placerat odio morbi mi adipiscing col morbi felis faucibus in gravida sollicitudin interdum commodo. Ante aliquam vis iaculis accumsan lorem ipsum dolor sit amet nullam.</p>
-                <p><span class="image right">
-                    <img src="images/pic08.jpg" alt="" /></span>Fringilla nisl. Donec accumsan interdum nisi, quis tincidunt felis sagittis eget. tempus euismod. Vestibulum ante ipsum primis in faucibus vestibulum. Blandit adipiscing eu felis iaculis volutpat ac adipiscing accumsan eu faucibus. Integer ac pellentesque praesent tincidunt felis sagittis eget. tempus euismod. Vestibulum ante ipsum primis in faucibus vestibulum. Blandit adipiscing eu felis iaculis volutpat ac adipiscing accumsan eu faucibus. Integer ac pellentesque praesent. Donec accumsan interdum nisi, quis tincidunt felis sagittis eget. tempus euismod. Vestibulum ante ipsum primis in faucibus vestibulum. Blandit adipiscing eu felis iaculis volutpat ac adipiscing accumsan eu faucibus. Integer ac pellentesque praesent tincidunt felis sagittis eget. tempus euismod. Vestibulum ante ipsum primis in faucibus vestibulum. Blandit adipiscing eu felis iaculis volutpat ac adipiscing accumsan eu faucibus. Integer ac pellentesque praesent. Cras aliquet accumsan curae accumsan arcu amet egestas placerat odio morbi mi adipiscing col morbi felis faucibus in gravida sollicitudin interdum commodo. Ante aliquam vis iaculis accumsan lorem ipsum dolor sit amet nullam. Cras aliquet accumsan curae accumsan arcu amet egestas placerat odio morbi mi adipiscing col morbi felis faucibus in gravida sollicitudin interdum commodo. Ante aliquam vis iaculis accumsan lorem ipsum dolor sit amet nullam.</p>
-            </section>
+                <h2>Gallery<asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:WebConfigConString %>" SelectCommand="SELECT [pictureData], [price], [pictureName], [pictureDesc], [pictureId], [artistId] FROM [picture]"></asp:SqlDataSource>
+                </h2>
+
+
+                        <asp:ListView ID="ListView1" runat="server" DataSourceID="SqlDataSource1">
+                            <ItemTemplate>
+								<div class="box alt">
+									<div class="row 50% uniform">
+                                        <div class="12u$">
+                                <asp:Image ID="Image1" class="image fit" runat="server"
+                                                ImageUrl='<%#"data:Image/png;base64," + Convert.ToBase64String((byte[])Eval("pictureData")) %>'/>
+								            <h3>"<%#Eval("pictureName") %>"</h3>
+                                            <h4>RM<%#Eval("price","{0:n}") %></h4>
+                                            <p><%#Eval("pictureDesc")%></p>
+
+                                            <ul class="actions">
+									            <li><asp:LinkButton ID="orderBtn" class="button special" runat="server" Text="Order" CommandArgument='<%#Eval("pictureId") %>' OnCommand="OrderBtn_Click"/></li>
+									            <li><asp:LinkButton ID="wishlistBtn" class="button special" runat="server" Text="Save to wishlist" CommandArgument='<%#Eval("pictureId") %>' OnCommand="WishlistBtn_Click"/></li>
+								            </ul>                                            </div>                                    </div>
+                                </div>
+                            </ItemTemplate>
+                            <ItemSeparatorTemplate><hr /></ItemSeparatorTemplate>
+
+                        </asp:ListView>
         </div>
     </div>
 </asp:Content>
