@@ -68,7 +68,7 @@
                             </ul>
                         </li>
                         <li>
-                            <asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl="~/ShoppingCart.aspx"><span class="icon fa-shopping-cart" style="width:30px; height:30px"></span>Shopping Cart</asp:HyperLink></li>
+                            <asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl="~/Customer/ShoppingCart.aspx"><span class="icon fa-shopping-cart" style="width:30px; height:30px"></span>Shopping Cart</asp:HyperLink></li>
                     </ul>
                 </nav>
             </header>

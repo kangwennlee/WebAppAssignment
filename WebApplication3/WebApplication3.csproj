@@ -97,6 +97,7 @@
     <Content Include="assets\sass\libs\_mixins.scss" />
     <Content Include="assets\sass\libs\_skel.scss" />
     <Content Include="assets\sass\libs\_vars.scss" />
+    <Content Include="Customer\updateProfile.aspx" />
     <Content Include="Customer\WishList.aspx" />
     <Content Include="Customer\PurchaseHistory.aspx" />
     <Content Include="Default.aspx" />
@@ -187,6 +188,13 @@
     </Compile>
     <Compile Include="Customer\CusMain.Master.designer.cs">
       <DependentUpon>CusMain.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Customer\updateProfile.aspx.cs">
+      <DependentUpon>updateProfile.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Customer\updateProfile.aspx.designer.cs">
+      <DependentUpon>updateProfile.aspx</DependentUpon>
     </Compile>
     <Compile Include="Customer\WishList.aspx.cs">
       <DependentUpon>WishList.aspx</DependentUpon>

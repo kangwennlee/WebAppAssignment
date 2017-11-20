@@ -27,7 +27,9 @@
                                             <ul class="actions">
 									            <li><asp:LinkButton ID="orderBtn" class="button special" runat="server" Text="Order" CommandArgument='<%#Eval("pictureId") %>' OnCommand="OrderBtn_Click"/></li>
 									            <li><asp:LinkButton ID="wishlistBtn" class="button special" runat="server" Text="Save to wishlist" CommandArgument='<%#Eval("pictureId") %>' OnCommand="WishlistBtn_Click"/></li>
-								            </ul>                                            </div>                                    </div>
+								            </ul>
+                                            </div>
+                                    </div>
                                 </div>
                             </ItemTemplate>
                             <ItemSeparatorTemplate><hr /></ItemSeparatorTemplate>
