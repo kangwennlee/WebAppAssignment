@@ -29,7 +29,6 @@ namespace WebApplication3
             com.Parameters.Add(paramId);
             com.CommandType = CommandType.Text;
 
-           
                 con.Open();
                 SqlDataAdapter da = new SqlDataAdapter(com);
                 da.Fill(dt);
@@ -41,13 +40,52 @@ namespace WebApplication3
             else
             {
                 Response.Redirect("updateProfile.aspx");
-            }
-                
+            } 
         }
 
-        protected void OrderBtn_Click(object sender, EventArgs e)
+        protected void addToCartBtn_Click(object sender, CommandEventArgs e)
         {
-            
+            string pictureId = e.CommandArgument.ToString();
+
+            if (Session["ShoppingCart"] != null)
+            {
+                DataTable dt = (DataTable)Session["ShoppingCart"];
+                var checkAdded = dt.AsEnumerable().Where(r => r.Field<string>("pictureId") == pictureId);
+                if(checkAdded.Count() == 0)
+                {
+                    string query = "SELECT * FROM [dbo].[picture] WHERE pictureId = '" + pictureId + "'";
+                    DataTable dtPicture = getDataFromDB(query);
+
+                    DataRow dr = dt.NewRow();
+                    dr["pictureId"] = pictureId;
+                    dr["pictureName"] = Convert.ToString(dtPicture.Rows[0]["pictureName"]);
+                    dr["price"] = Convert.ToString(dtPicture.Rows[0]["price"]);
+
+                    dt.Rows.Add(dr);
+
+                    Session["ShoppingCart"] = dt;
+                }
+            }
+            else
+            {
+                string query = "SELECT * FROM [dbo].[picture] WHERE pictureId = '" + pictureId + "'";
+                DataTable dtPicture = getDataFromDB(query);
+
+                DataTable dt = new DataTable();
+
+                dt.Columns.Add("pictureId", typeof(string));
+                dt.Columns.Add("pictureName", typeof(string));
+                dt.Columns.Add("price", typeof(string));
+
+                DataRow dr = dt.NewRow();
+                dr["pictureId"] = pictureId;
+                dr["pictureName"] = Convert.ToString(dtPicture.Rows[0]["pictureName"]);
+                dr["price"] = Convert.ToString(dtPicture.Rows[0]["price"]);
+
+                dt.Rows.Add(dr);
+                Session["ShoppingCart"] = dt;
+            }
+
         }
 
         protected void WishlistBtn_Click(object sender, CommandEventArgs e)
@@ -70,9 +108,20 @@ namespace WebApplication3
             {
                 Response.Write("<script>alert('Failed to add.');</script>");
             }
-            
+        }
 
-            
+        public DataTable getDataFromDB(string query)
+        {
+            DataTable dt = new DataTable();
+            string strCon = ConfigurationManager.ConnectionStrings["WebConfigConString"].ConnectionString;
+            SqlConnection con = new SqlConnection(strCon);
+            con.Open();
+
+            SqlDataAdapter da = new SqlDataAdapter(query, con);
+            da.Fill(dt);
+            con.Close();
+            return dt;
+
         }
     }
 }

@@ -25,7 +25,7 @@
                                             <p><%#Eval("pictureDesc")%></p>
 
                                             <ul class="actions">
-									            <li><asp:LinkButton ID="orderBtn" class="button special" runat="server" Text="Order" CommandArgument='<%#Eval("pictureId") %>' OnCommand="OrderBtn_Click"/></li>
+									            <li><asp:LinkButton ID="addToCartBtn" class="button special" runat="server" Text="Add to cart" CommandArgument='<%#Eval("pictureId") %>' OnCommand="addToCartBtn_Click"/></li>
 									            <li><asp:LinkButton ID="wishlistBtn" class="button special" runat="server" Text="Save to wishlist" CommandArgument='<%#Eval("pictureId") %>' OnCommand="WishlistBtn_Click"/></li>
 								            </ul>
                                             </div>
@@ -33,8 +33,9 @@
                                 </div>
                             </ItemTemplate>
                             <ItemSeparatorTemplate><hr /></ItemSeparatorTemplate>
-
                         </asp:ListView>
         </div>
     </div>
 </asp:Content>
+
+

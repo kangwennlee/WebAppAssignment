@@ -3,7 +3,7 @@
 <asp:content id="Content3" contentplaceholderid="ContentPlaceHolder1" runat="Server">
     <div id="main" class="wrapper style1">
         <div class="container">
-            <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False">
+            <!-- <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False">
                 <Columns>
                     <asp:TemplateField>
                         <ItemTemplate>
@@ -17,7 +17,26 @@
             </asp:GridView>
             
             
-            <asp:SqlDataSource ID="SqlDataSource1" runat="server"></asp:SqlDataSource>
+            <asp:SqlDataSource ID="SqlDataSource1" runat="server"></asp:SqlDataSource> -->
+
+            <asp:ListView ID="ListView1" runat="server">
+                            <ItemTemplate>
+								<div class="box alt">
+									<div class="row 50% uniform">
+                                        <div class="12u$">
+                                <asp:Image ID="Image1" class="image fit" runat="server"
+                                                ImageUrl='<%#"data:Image/png;base64," + Convert.ToBase64String((byte[])Eval("pictureData")) %>'/>
+								            <h3>"<%#Eval("pictureName") %>"</h3>
+                                            <h4>RM<%#Eval("price","{0:n}") %></h4>
+
+                                            <ul class="actions">
+									            <li><asp:LinkButton ID="addToCartBtn" class="button special" runat="server" Text="Add to cart" CommandArgument='<%#Eval("pictureId") %>' OnCommand="addToCartBtn_Click"/></li>
+									            <li><asp:LinkButton ID="removeBtn" class="button special" runat="server" Text="Remove" CommandArgument='<%#Eval("wishId") %>' OnCommand="removeBtn_Click"/></li>
+								            </ul>                                            </div>                                    </div>
+                                </div>
+                            </ItemTemplate>
+                            <ItemSeparatorTemplate><hr /></ItemSeparatorTemplate>
+                        </asp:ListView>
             
             
         </div>

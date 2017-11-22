@@ -68,13 +68,37 @@
                             </ul>
                         </li>
                         <li>
-                            <asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl="~/Customer/ShoppingCart.aspx"><span class="icon fa-shopping-cart" style="width:30px; height:30px"></span>Shopping Cart</asp:HyperLink></li>
+                            <asp:LinkButton ID="LinkButton1" runat="server" OnClick="LinkButton1_Click"><span class="icon fa-shopping-cart" style="width:30px; height:30px"></span>Shopping Cart</asp:LinkButton>
                     </ul>
                 </nav>
             </header>
 
             <!-- Main -->
             <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server"></asp:ContentPlaceHolder>
+            <asp:ContentPlaceHolder ID="ContentPlaceHolder2" runat="server">
+                <table>
+                    <asp:DataList ID="DataList1" runat="server">
+                        <HeaderTemplate>
+							    <table>
+									    <tr>
+										    <th>Picture ID</th>
+										    <th>Picture Name</th>
+										    <th>Price(RM)</th>
+                                            <th></th>
+									    </tr>
+                        </HeaderTemplate>
+                        <ItemTemplate>
+                                <tr>
+							        <td><%#Eval("pictureId")%></td>
+							        <td><%#Eval("pictureName")%></td>
+							        <td><%#Eval("price","{0:n}")%></td>
+                                    <td>
+                                        <asp:LinkButton ID="LinkButton2" class="button special" runat="server" Text="Remove" CommandArgument='<%#Eval("pictureId") %>' OnCommand="LinkButton2_Click"/></td>
+                                </tr>
+                        </ItemTemplate>
+                    </asp:DataList>
+                    </table>
+            </asp:ContentPlaceHolder>
             <!-- Footer -->
             <footer id="footer">
                 <ul class="icons">
