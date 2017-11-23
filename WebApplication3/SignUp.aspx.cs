@@ -22,17 +22,23 @@ namespace WebApplication3
             RadioButtonList rblUserType = (RadioButtonList) CreateUserWizard1.CreateUserStep.ContentTemplateContainer.FindControl("UserType");
             String type = rblUserType.SelectedValue.ToString();
             String username = CreateUserWizard1.UserName.ToString();
+            String password = CreateUserWizard1.Password.ToString();
             if (type == "Artist")
             {
                 if (!Roles.IsUserInRole(username, "Artist"))
                     Roles.AddUserToRole(username, "Artist");
-            }else if(type == "Customer")
+                Membership.ValidateUser(username, password);
+                FormsAuthentication.RedirectFromLoginPage(username, true);
+                Response.Redirect("~/Artist/ArtistProfile.aspx");
+            }
+            else if(type == "Customer")
             {
                 if (!Roles.IsUserInRole(username, "Customer"))
                     Roles.AddUserToRole(username, "Customer");
+                Membership.ValidateUser(username, password);
+                FormsAuthentication.RedirectFromLoginPage(username, true);
+                Response.Redirect("~/Customer/Gallery.aspx");
             }
-            
-            Response.Redirect("Login.aspx");
         }
     }
 }

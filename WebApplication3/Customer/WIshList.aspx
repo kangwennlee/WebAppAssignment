@@ -32,7 +32,9 @@
                                             <ul class="actions">
 									            <li><asp:LinkButton ID="addToCartBtn" class="button special" runat="server" Text="Add to cart" CommandArgument='<%#Eval("pictureId") %>' OnCommand="addToCartBtn_Click"/></li>
 									            <li><asp:LinkButton ID="removeBtn" class="button special" runat="server" Text="Remove" CommandArgument='<%#Eval("wishId") %>' OnCommand="removeBtn_Click"/></li>
-								            </ul>                                            </div>                                    </div>
+								            </ul>
+                                            </div>
+                                    </div>
                                 </div>
                             </ItemTemplate>
                             <ItemSeparatorTemplate><hr /></ItemSeparatorTemplate>

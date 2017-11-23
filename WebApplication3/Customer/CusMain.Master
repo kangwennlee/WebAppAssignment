@@ -54,7 +54,7 @@
                         <li>
                             <asp:HyperLink ID="HyperLink13" runat="server" NavigateUrl="~/Customer/Gallery.aspx">Explore Our Art</asp:HyperLink></li>
                         <li>
-                            <asp:HyperLink ID="HyperLink14" runat="server"><asp:Label ID="Label1" runat="server" Text=""></asp:Label></asp:HyperLink>
+                            <asp:HyperLink ID="HyperLink14" runat="server" NavigateUrl="~/Customer/CustomerProfile.aspx"><asp:Label ID="Label1" runat="server" Text=""></asp:Label></asp:HyperLink>
                             <ul>
                                 <li>
                                     <asp:HyperLink ID="HyperLink15" runat="server" NavigateUrl="~/Customer/updateProfile.aspx">Edit Profile</asp:HyperLink></li>
@@ -68,7 +68,7 @@
                             </ul>
                         </li>
                         <li>
-                            <asp:LinkButton ID="LinkButton1" runat="server" OnClick="LinkButton1_Click"><span class="icon fa-shopping-cart" style="width:30px; height:30px"></span>Shopping Cart</asp:LinkButton>
+                            <asp:LinkButton ID="ShoppingCart" runat="server" OnClick="ShoppingCart_Click"><span class="icon fa-shopping-cart" style="width:30px; height:30px"></span>Shopping Cart</asp:LinkButton>
                     </ul>
                 </nav>
             </header>
@@ -93,7 +93,7 @@
 							        <td><%#Eval("pictureName")%></td>
 							        <td><%#Eval("price","{0:n}")%></td>
                                     <td>
-                                        <asp:LinkButton ID="LinkButton2" class="button special" runat="server" Text="Remove" CommandArgument='<%#Eval("pictureId") %>' OnCommand="LinkButton2_Click"/></td>
+                                        <asp:LinkButton ID="LinkButton2" class="button special" runat="server" Text="Remove" CommandArgument='<%#Eval("pictureId") %>' OnCommand="ShoppingCart_Click"/></td>
                                 </tr>
                         </ItemTemplate>
                     </asp:DataList>

@@ -8,6 +8,7 @@ using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
 using System.Web.Security;
+using System.IO;
 
 namespace WebApplication3.Customer
 {
@@ -50,6 +51,10 @@ namespace WebApplication3.Customer
             string gender = rblGender.SelectedItem.Value.ToString();
             string phoneNum = txtPhoneNum.Text;
 
+            HttpPostedFile postedFile = FileUpload1.PostedFile;
+            Stream stream = postedFile.InputStream;
+            BinaryReader binaryReader = new BinaryReader(stream);
+            byte[] bytes = binaryReader.ReadBytes((int)stream.Length);
 
             string strCon = ConfigurationManager.ConnectionStrings["WebConfigConString"].ConnectionString;
             SqlConnection con = new SqlConnection(strCon);
@@ -72,9 +77,8 @@ namespace WebApplication3.Customer
             con.Close();
             if (dt.Rows.Count > 0)
             {
-                string cmdTxt1 = "UPDATE customerProfile SET firstName = '"+ firstName +"', lastName = '" + lastName +"', gender = '" + gender +"', phoneNum = '" + phoneNum +"' WHERE custId = '" + Id +"'";
+                string cmdTxt1 = "UPDATE customerProfile SET firstName = '"+ firstName +"', lastName = '" + lastName +"', gender = '" + gender + "', profilePic = '" + bytes +"', phoneNum = '" + phoneNum +"' WHERE custId = '" + Id +"'";
                 SqlCommand com1 = new SqlCommand(cmdTxt1, con);
-
                 com1.CommandType = CommandType.Text;
                 con.Open();
                 com1.ExecuteNonQuery();
@@ -82,16 +86,15 @@ namespace WebApplication3.Customer
             }
             else
             {
-                string cmdTxt1 = "INSERT INTO [dbo].[customerProfile] VALUES('"+ Id +"', '"+ firstName + "', '" + lastName + "', '" + gender + "', '" + phoneNum + "')";
+                string cmdTxt1 = "INSERT INTO [dbo].[customerProfile] VALUES('"+ Id +"', '"+ firstName + "', '" + lastName + "', '" + gender + "', '" + phoneNum + "', '" + bytes+"')";
                 SqlCommand com2 = new SqlCommand(cmdTxt1, con);
 
                 com2.CommandType = CommandType.Text;
                 con.Open();
                 com2.ExecuteNonQuery();
                 con.Close();
-
-                Response.Redirect("Gallery.aspx");
             }
+            Response.Redirect("Gallery.aspx");
         }
     }
 }

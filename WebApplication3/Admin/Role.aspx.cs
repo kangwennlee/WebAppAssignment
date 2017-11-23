@@ -57,5 +57,11 @@ namespace WebApplication3
             GridView1.DataSource = Roles.GetUsersInRole(DropDownList1.SelectedValue);
             GridView1.DataBind();
         }
+
+        protected void Button3_Click(object sender, EventArgs e)
+        {
+            String username = TextBox2.Text;
+            Membership.DeleteUser(username);
+        }
     }
 }

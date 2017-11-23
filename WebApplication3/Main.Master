@@ -52,7 +52,7 @@
                             </ul>
                         </li>
                         <li>
-                            <asp:HyperLink ID="HyperLink13" runat="server" NavigateUrl="~">Explore Our Art</asp:HyperLink></li>
+                            <asp:HyperLink ID="HyperLink13" runat="server" NavigateUrl="~/Customer/Gallery.aspx">Explore Our Art</asp:HyperLink></li>
                         <li>
                             <asp:HyperLink ID="HyperLink1" runat="server" class="button special" NavigateUrl="~/SignUp.aspx">Sign Up</asp:HyperLink></li>
                         <li>

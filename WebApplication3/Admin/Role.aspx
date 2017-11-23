@@ -31,6 +31,9 @@
             </p>
             <asp:GridView ID="GridView1" runat="server">
             </asp:GridView>
+            <asp:TextBox ID="TextBox2" runat="server"></asp:TextBox>
+            <asp:Button ID="Button3" runat="server" OnClick="Button3_Click" Text="Delete User" />
+            <br />
             <asp:LoginStatus ID="LoginStatus1" runat="server" />
         </div>
     </form>

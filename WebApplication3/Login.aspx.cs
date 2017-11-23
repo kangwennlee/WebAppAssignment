@@ -21,20 +21,24 @@ namespace WebApplication3
         protected void LoginButton_Click(object sender, EventArgs e)
         {
             String username = Login1.UserName;
-            if(Roles.IsUserInRole(username, "Artist"))
+            String password = Login1.Password;
+            if(Membership.ValidateUser(username, password))
             {
-                FormsAuthentication.RedirectFromLoginPage(username,true);
-                Response.Redirect("ArtistProfile.aspx");
-            }
-            if (Roles.IsUserInRole(username, "Customer"))
-            {
-                FormsAuthentication.RedirectFromLoginPage(username, true);
-                Response.Redirect("Customer/Gallery.aspx");
-            }
-            if (Roles.IsUserInRole(username, "Admin"))
-            {
-                FormsAuthentication.RedirectFromLoginPage(username, true);
-                Response.Redirect("Role.aspx");
+                if (Roles.IsUserInRole(username, "Artist"))
+                {
+                    FormsAuthentication.RedirectFromLoginPage(username, true);
+                    Response.Redirect("~/Artist/ArtistProfile.aspx");
+                }
+                if (Roles.IsUserInRole(username, "Customer"))
+                {
+                    FormsAuthentication.RedirectFromLoginPage(username, true);
+                    Response.Redirect("~/Customer/Gallery.aspx");
+                }
+                if (Roles.IsUserInRole(username, "Admin"))
+                {
+                    FormsAuthentication.RedirectFromLoginPage(username,true);
+                    Response.Redirect("~/Admin/Role.aspx");
+                }
             }
         }
     }

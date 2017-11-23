@@ -41,7 +41,7 @@ namespace WebApplication3.Customer
 
         
 
-        protected void LinkButton2_Click(object sender, CommandEventArgs e)
+        protected void ShoppingCart_Click(object sender, CommandEventArgs e)
         {
             string pictureId = e.CommandArgument.ToString();
             if(Session["ShoppingCart"] != null)
@@ -82,6 +82,11 @@ namespace WebApplication3.Customer
                 DataList1.DataSource = null;
                 DataList1.DataBind();
             }
+
+        }
+
+        protected void ShoppingCart_Click(object sender, EventArgs e)
+        {
 
         }
     }

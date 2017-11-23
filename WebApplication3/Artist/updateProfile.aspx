@@ -10,8 +10,8 @@
             <asp:TextBox ID="txtBio" runat="server" placeholder="Biobibliography" TextMode="MultiLine"></asp:TextBox>
             <asp:FileUpload ID="FileUpload1" runat="server" />
             <asp:RadioButtonList ID="rblGender" runat="server" RepeatDirection="Horizontal">
-                <asp:ListItem>M</asp:ListItem>
-                <asp:ListItem>F</asp:ListItem>
+                <asp:ListItem>Male</asp:ListItem>
+                <asp:ListItem>Female</asp:ListItem>
             </asp:RadioButtonList>
             
 
