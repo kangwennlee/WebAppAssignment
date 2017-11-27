@@ -31,11 +31,13 @@ namespace WebApplication3.Customer
                 GetCart();
                 ContentPlaceHolder1.Visible = false;
                 ContentPlaceHolder2.Visible = true;
+                ShoppingCartLabel.Text = "Return";
             }
             else
             {
                 ContentPlaceHolder1.Visible = true;
                 ContentPlaceHolder2.Visible = false;
+                ShoppingCartLabel.Text = "Shopping Cart";
             }
         }
 
@@ -76,13 +78,95 @@ namespace WebApplication3.Customer
             {
                 DataList1.DataSource = dtPicture;
                 DataList1.DataBind();
+                checkoutBtn1.Enabled = true;
+                cartrowCountLabel.Text = "";
             }
             else
             {
                 DataList1.DataSource = null;
                 DataList1.DataBind();
+                checkoutBtn1.Enabled = false;
+                cartrowCountLabel.Text = "Cart is Empty! Please add some art into the cart!";
             }
 
+        }
+
+        protected void CheckoutBtn_Command(object sender, EventArgs e)
+        {
+            string strCon = ConfigurationManager.ConnectionStrings["WebConfigConString"].ConnectionString;
+            SqlConnection con = new SqlConnection(strCon);
+            string Id = Membership.GetUser().ProviderUserKey.ToString();
+            DateTime date = DateTime.Now;
+
+            string retOrderId = "SELECT orderId FROM [dbo].[Order] WHERE custId='" + Id + "';";
+            DataTable dtOrderId = new DataTable();
+            SqlDataAdapter da = new SqlDataAdapter(retOrderId, con);
+
+            try
+            {
+                SqlCommand cmd = new SqlCommand("createOrder", con);
+                cmd.CommandType = CommandType.StoredProcedure;
+                SqlParameter paramId1 = new SqlParameter()
+                {
+                    ParameterName = "@custId",
+                    Value = Id
+                };
+                cmd.Parameters.Add(paramId1);
+
+                SqlParameter paramFirstName = new SqlParameter()
+                {
+                    ParameterName = "@orderDate",
+                    Value = date
+                };
+                cmd.Parameters.Add(paramFirstName);
+                con.Open();
+                da.Fill(dtOrderId);
+                cmd.ExecuteNonQuery();
+                con.Close();
+                Response.Write("<script>alert('Successfully added order !');</script>");
+            }
+            catch
+            {
+                Response.Write("<script>alert('Failed to added order !');</script>");
+            }
+
+
+            string orderId = dtOrderId.Rows[0]["orderId"].ToString();
+            DataTable dtPicture = (DataTable)Session["ShoppingCart"];
+
+
+            for (int i = 0; i < dtPicture.Rows.Count; i++)
+            {
+                string pictureId = (string)dtPicture.Rows[i]["pictureId"];
+                try
+                {
+                    SqlCommand cmd = new SqlCommand("insertOrderDetail", con);
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    SqlParameter paramId1 = new SqlParameter()
+                    {
+                        ParameterName = "@orderId",
+                        Value = orderId
+                    };
+                    cmd.Parameters.Add(paramId1);
+
+                    SqlParameter paramFirstName = new SqlParameter()
+                    {
+                        ParameterName = "@pictureId",
+                        Value = pictureId
+                    };
+                    cmd.Parameters.Add(paramFirstName);
+                    con.Open();
+                    cmd.ExecuteNonQuery();
+                    con.Close();
+                    Response.Write("<script>alert('Successfully added order detail !');</script>");
+                }
+                catch
+                {
+                    Response.Write("<script>alert('Failed to add order detail !');</script>");
+                }
+            }
+            Session["ShoppingCart"] = null;
+            Response.Redirect("PurchaseHistory.aspx");
         }
     }
 }

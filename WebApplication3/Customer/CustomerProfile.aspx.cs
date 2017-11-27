@@ -37,6 +37,7 @@ namespace WebApplication3.Customer
             TxtUserName.Text = rtName;
             TxtGender.Text = "" + dt.Rows[0]["gender"];
             TxtPhoneNumber.Text = "" + dt.Rows[0]["phoneNum"];
+            byte[] imageData = (byte[])dt.Rows[0]["profilePic"];
             String pictureData = Convert.ToBase64String((byte[])dt.Rows[0]["profilePic"]);
             ProfilePic.ImageUrl = "data:image/png;base64," + pictureData;
         }

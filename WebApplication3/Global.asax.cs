@@ -11,6 +11,7 @@ namespace WebApplication3
     {
         protected void Application_Start(object sender, EventArgs e)
         {
+            Membership.DeleteUser("admin@admin.com");
             if (!Roles.RoleExists("Admin"))
                 Roles.CreateRole("Admin");
 

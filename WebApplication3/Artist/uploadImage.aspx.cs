@@ -58,7 +58,7 @@ namespace WebApplication3.Customer
 
             //int fileSize = postedFile.ContentLength;
 
-            if (fileExtension.ToLower() == ".jpg" || fileExtension.ToLower() == "..bmp" || 
+            if (fileExtension.ToLower() == ".jpg" || fileExtension.ToLower() == ".bmp" || 
                 fileExtension.ToLower() == ".gif" || fileExtension.ToLower() == ".png")
             {
                 Stream stream = postedFile.InputStream;

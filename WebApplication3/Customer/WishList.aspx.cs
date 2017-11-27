@@ -35,9 +35,9 @@ namespace WebApplication3.Customer
                     dr["pictureId"] = pictureId;
                     dr["pictureName"] = Convert.ToString(dtPicture.Rows[0]["pictureName"]);
                     dr["price"] = Convert.ToString(dtPicture.Rows[0]["price"]);
+                    dr["pictureData"] = dtPicture.Rows[0]["pictureData"];
 
                     dt.Rows.Add(dr);
-
                     Session["ShoppingCart"] = dt;
                 }
             }
@@ -49,6 +49,7 @@ namespace WebApplication3.Customer
                 DataTable dt = new DataTable();
 
                 dt.Columns.Add("pictureId", typeof(string));
+                dt.Columns.Add("pictureData", typeof(byte[]));
                 dt.Columns.Add("pictureName", typeof(string));
                 dt.Columns.Add("price", typeof(string));
 
@@ -56,11 +57,12 @@ namespace WebApplication3.Customer
                 dr["pictureId"] = pictureId;
                 dr["pictureName"] = Convert.ToString(dtPicture.Rows[0]["pictureName"]);
                 dr["price"] = Convert.ToString(dtPicture.Rows[0]["price"]);
+                dr["pictureData"] = dtPicture.Rows[0]["pictureData"];
 
                 dt.Rows.Add(dr);
                 Session["ShoppingCart"] = dt;
             }
-
+            Response.Write("<script>alert('Successfully added to shopping cart !');</script>");
         }
 
         protected void removeBtn_Click(object sender, CommandEventArgs e)

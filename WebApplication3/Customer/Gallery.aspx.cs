@@ -60,6 +60,7 @@ namespace WebApplication3
                     dr["pictureId"] = pictureId;
                     dr["pictureName"] = Convert.ToString(dtPicture.Rows[0]["pictureName"]);
                     dr["price"] = Convert.ToString(dtPicture.Rows[0]["price"]);
+                    dr["pictureData"] = dtPicture.Rows[0]["pictureData"];
 
                     dt.Rows.Add(dr);
 
@@ -76,11 +77,13 @@ namespace WebApplication3
                 dt.Columns.Add("pictureId", typeof(string));
                 dt.Columns.Add("pictureName", typeof(string));
                 dt.Columns.Add("price", typeof(string));
+                dt.Columns.Add("pictureData", typeof(byte[]));
 
                 DataRow dr = dt.NewRow();
                 dr["pictureId"] = pictureId;
                 dr["pictureName"] = Convert.ToString(dtPicture.Rows[0]["pictureName"]);
                 dr["price"] = Convert.ToString(dtPicture.Rows[0]["price"]);
+                dr["pictureData"] = dtPicture.Rows[0]["pictureData"];
 
                 dt.Rows.Add(dr);
                 Session["ShoppingCart"] = dt;

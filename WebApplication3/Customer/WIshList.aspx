@@ -18,7 +18,6 @@
             
             
             <asp:SqlDataSource ID="SqlDataSource1" runat="server"></asp:SqlDataSource> -->
-
             <asp:ListView ID="ListView1" runat="server">
                             <ItemTemplate>
 								<div class="box alt">

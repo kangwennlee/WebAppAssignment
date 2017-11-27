@@ -20,17 +20,15 @@ namespace WebApplication3.Customer
             SqlConnection con = new SqlConnection(strCon);
             DataTable dt = new DataTable();
             String Id = Membership.GetUser().ProviderUserKey.ToString();
-            string cmdTxt = "Select * FROM customerProfile WHERE custId = @Id0";
+            string cmdTxt = "Select * FROM customerProfile WHERE custId = @Id";
             SqlCommand com = new SqlCommand(cmdTxt, con);
             SqlParameter paramId = new SqlParameter()
             {
-                ParameterName = "@Id0",
+                ParameterName = "@Id",
                 Value = Id
             };
             com.Parameters.Add(paramId);
             com.CommandType = CommandType.Text;
-
-
             con.Open();
             SqlDataAdapter da = new SqlDataAdapter(com);
             da.Fill(dt);
@@ -50,16 +48,16 @@ namespace WebApplication3.Customer
             string lastName = txtLastName.Text;
             string gender = rblGender.SelectedItem.Value.ToString();
             string phoneNum = txtPhoneNum.Text;
+            string Id = Membership.GetUser().ProviderUserKey.ToString();
 
             HttpPostedFile postedFile = FileUpload1.PostedFile;
             Stream stream = postedFile.InputStream;
             BinaryReader binaryReader = new BinaryReader(stream);
             byte[] bytes = binaryReader.ReadBytes((int)stream.Length);
 
+            DataTable dt = new DataTable();
             string strCon = ConfigurationManager.ConnectionStrings["WebConfigConString"].ConnectionString;
             SqlConnection con = new SqlConnection(strCon);
-            DataTable dt = new DataTable();
-            string Id = Membership.GetUser().ProviderUserKey.ToString();
             string cmdTxt = "Select * FROM customerProfile WHERE custId = @Id";
             SqlCommand com = new SqlCommand(cmdTxt, con);
             SqlParameter paramId = new SqlParameter()
@@ -69,31 +67,117 @@ namespace WebApplication3.Customer
             };
             com.Parameters.Add(paramId);
             com.CommandType = CommandType.Text;
-
-
             con.Open();
             SqlDataAdapter da = new SqlDataAdapter(com);
             da.Fill(dt);
             con.Close();
             if (dt.Rows.Count > 0)
             {
-                string cmdTxt1 = "UPDATE customerProfile SET firstName = '"+ firstName +"', lastName = '" + lastName +"', gender = '" + gender + "', profilePic = '" + bytes +"', phoneNum = '" + phoneNum +"' WHERE custId = '" + Id +"'";
-                SqlCommand com1 = new SqlCommand(cmdTxt1, con);
-                com1.CommandType = CommandType.Text;
-                con.Open();
-                com1.ExecuteNonQuery();
-                con.Close();
+                using (con)
+                {
+                    SqlCommand cmd = new SqlCommand("UpdateCustProfile", con);
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    SqlParameter paramId1 = new SqlParameter()
+                    {
+                        ParameterName = "@custId",
+                        Value = Id
+                    };
+                    cmd.Parameters.Add(paramId1);
+
+                    SqlParameter paramFirstName = new SqlParameter()
+                    {
+                        ParameterName = "@firstName",
+                        Value = firstName
+                    };
+                    cmd.Parameters.Add(paramFirstName);
+
+                    SqlParameter paramPicturePrice = new SqlParameter()
+                    {
+                        ParameterName = "@lastName",
+                        Value = lastName
+                    };
+                    cmd.Parameters.Add(paramPicturePrice);
+
+                    SqlParameter paramArtistId = new SqlParameter()
+                    {
+                        ParameterName = "@gender",
+                        Value = gender
+                    };
+                    cmd.Parameters.Add(paramArtistId);
+
+                    SqlParameter paramPhoneNumber = new SqlParameter()
+                    {
+                        ParameterName = "@phoneNum",
+                        Value = phoneNum
+                    };
+                    cmd.Parameters.Add(paramPhoneNumber);
+
+                    SqlParameter paramPictureData = new SqlParameter()
+                    {
+                        ParameterName = "@pictureData",
+                        Value = bytes
+                    };
+                    cmd.Parameters.Add(paramPictureData);
+
+                    con.Open();
+                    cmd.ExecuteNonQuery();
+                    con.Close();
+                }
             }
             else
             {
-                string cmdTxt1 = "INSERT INTO [dbo].[customerProfile] VALUES('"+ Id +"', '"+ firstName + "', '" + lastName + "', '" + gender + "', '" + phoneNum + "', '" + bytes+"')";
-                SqlCommand com2 = new SqlCommand(cmdTxt1, con);
+                using (con)
+                {
+                    SqlCommand cmd = new SqlCommand("firstUpdateProfile", con);
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    SqlParameter paramId1 = new SqlParameter()
+                    {
+                        ParameterName = "@custId",
+                        Value = Id
+                    };
+                    cmd.Parameters.Add(paramId1);
 
-                com2.CommandType = CommandType.Text;
-                con.Open();
-                com2.ExecuteNonQuery();
-                con.Close();
+                    SqlParameter paramFirstName = new SqlParameter()
+                    {
+                        ParameterName = "@firstName",
+                        Value = firstName
+                    };
+                    cmd.Parameters.Add(paramFirstName);
+
+                    SqlParameter paramPicturePrice = new SqlParameter()
+                    {
+                        ParameterName = "@lastName",
+                        Value = lastName
+                    };
+                    cmd.Parameters.Add(paramPicturePrice);
+
+                    SqlParameter paramArtistId = new SqlParameter()
+                    {
+                        ParameterName = "@gender",
+                        Value = gender
+                    };
+                    cmd.Parameters.Add(paramArtistId);
+
+                    SqlParameter paramPhoneNumber = new SqlParameter()
+                    {
+                        ParameterName = "@phoneNum",
+                        Value = phoneNum
+                    };
+                    cmd.Parameters.Add(paramPhoneNumber);
+
+                    SqlParameter paramPictureData = new SqlParameter()
+                    {
+                        ParameterName = "@pictureData",
+                        Value = bytes
+                    };
+                    cmd.Parameters.Add(paramPictureData);
+
+                    con.Open();
+                    cmd.ExecuteNonQuery();
+                    con.Close();
+                }
             }
+            Response.Write("<script>alert('Successfully updated your profile!');</script>");
             Response.Redirect("Gallery.aspx");
         }
     }

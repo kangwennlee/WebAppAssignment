@@ -13,6 +13,7 @@
                     <!-- Sidebar -->
                     <section id="sidebar">
                         <section>
+                            <div class="4u  6u(xsmall)"><asp:Image ID="ProfilePic" runat="server" class="image fit"/></div>
                             <h3>
                                 <asp:Label ID="TxtUserName" runat="server" Text=""></asp:Label></h3>
                             <p>
@@ -27,8 +28,6 @@
                         </section>
                         <hr />
                         <section>
-                            <a href="#" class="image fit">
-                                <asp:Image ID="ProfilePic" runat="server"/></a>
                             <h3>Amet Lorem Tempus</h3>
                             <p>Sed tristique purus vitae volutpat commodo suscipit amet sed nibh. Proin a ullamcorper sed blandit. Sed tristique purus vitae volutpat commodo suscipit ullamcorper sed blandit lorem ipsum dolore.</p>
                             <footer>

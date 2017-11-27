@@ -61,14 +61,17 @@
                                 <li>
                                     <asp:HyperLink ID="HyperLink16" runat="server" NavigateUrl="~/Customer/WishList.aspx">Wishlist</asp:HyperLink></li>
                                 <li>
-                                    <asp:HyperLink ID="HyperLink17" runat="server">Purchase History</asp:HyperLink></li>
+                                    <asp:HyperLink ID="HyperLink17" runat="server" NavigateUrl="~/Customer/PurchaseHistory.aspx">Purchase History</asp:HyperLink></li>
                                 <li>
                                     <asp:LoginStatus ID="LoginStatus1" runat="server"/>
                                 <li>
                             </ul>
                         </li>
                         <li>
-                            <asp:LinkButton ID="ShoppingCart" runat="server" OnClick="ShoppingCart_Click"><span class="icon fa-shopping-cart" style="width:30px; height:30px"></span>Shopping Cart</asp:LinkButton>
+                            <asp:LinkButton ID="ShoppingCart" runat="server" OnClick="ShoppingCart_Click">
+                                <span class="icon fa-shopping-cart" style="width:30px; height:30px"></span>
+                                <asp:Label ID="ShoppingCartLabel" runat="server" Text="Shopping Cart"></asp:Label>
+                            </asp:LinkButton>
                     </ul>
                 </nav>
             </header>
@@ -81,7 +84,7 @@
                         <HeaderTemplate>
 							    <table>
 									    <tr>
-										    <th>Picture ID</th>
+                                            <th>Picture</th>
 										    <th>Picture Name</th>
 										    <th>Price(RM)</th>
                                             <th></th>
@@ -89,14 +92,18 @@
                         </HeaderTemplate>
                         <ItemTemplate>
                                 <tr>
-							        <td><%#Eval("pictureId")%></td>
+
+                                    <td style="width:200px;"><span class="image fit"><asp:Image ID="Image1" runat="server"
+                                                ImageUrl='<%#"data:Image/png;base64," + Convert.ToBase64String((byte[])Eval("pictureData")) %>'/></span></td>
 							        <td><%#Eval("pictureName")%></td>
 							        <td><%#Eval("price","{0:n}")%></td>
                                     <td>
-                                        <asp:LinkButton ID="LinkButton2" class="button special" runat="server" Text="Remove" CommandArgument='<%#Eval("pictureId") %>' OnCommand="RemoveCart_Click"/></td>
+                                        <asp:LinkButton ID="removeBtn" class="button special" runat="server" Text="Remove" CommandArgument='<%#Eval("pictureId") %>' OnCommand="RemoveCart_Click"/></td>
                                 </tr>
                         </ItemTemplate>
                     </asp:DataList>
+                    <tr><td><asp:Label ID="cartrowCountLabel" runat="server" Text=""></asp:Label></td></tr>
+                    <tr><td><asp:Button ID="checkoutBtn1" runat="server" Text="Checkout" class="button special" onClick="CheckoutBtn_Command"/></td></tr>
                     </table>
             </asp:ContentPlaceHolder>
             <!-- Footer -->

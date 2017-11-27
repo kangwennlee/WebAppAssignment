@@ -18,7 +18,7 @@
 								<div class="box alt">
 									<div class="row 50% uniform">
                                         <div class="12u$">
-                                <asp:Image ID="Image1" class="image fit" runat="server"
+                                <asp:Image ID="Image1" class="image fit" runat="server" 
                                                 ImageUrl='<%#"data:Image/png;base64," + Convert.ToBase64String((byte[])Eval("pictureData")) %>'/>
 								            <h3>"<%#Eval("pictureName") %>"</h3>
                                             <h4>RM<%#Eval("price","{0:n}") %></h4>
