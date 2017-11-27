@@ -85,7 +85,7 @@ namespace WebApplication3
                 dt.Rows.Add(dr);
                 Session["ShoppingCart"] = dt;
             }
-
+            Response.Write("<script>alert('Successfully added to shopping cart !');</script>");
         }
 
         protected void WishlistBtn_Click(object sender, CommandEventArgs e)

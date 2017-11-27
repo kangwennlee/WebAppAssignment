@@ -93,7 +93,7 @@
 							        <td><%#Eval("pictureName")%></td>
 							        <td><%#Eval("price","{0:n}")%></td>
                                     <td>
-                                        <asp:LinkButton ID="LinkButton2" class="button special" runat="server" Text="Remove" CommandArgument='<%#Eval("pictureId") %>' OnCommand="ShoppingCart_Click"/></td>
+                                        <asp:LinkButton ID="LinkButton2" class="button special" runat="server" Text="Remove" CommandArgument='<%#Eval("pictureId") %>' OnCommand="RemoveCart_Click"/></td>
                                 </tr>
                         </ItemTemplate>
                     </asp:DataList>
