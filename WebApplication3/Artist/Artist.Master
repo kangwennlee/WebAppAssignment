@@ -57,16 +57,20 @@
                             <asp:HyperLink ID="HyperLink14" runat="server"><asp:Label ID="Label1" runat="server" Text=""></asp:Label></asp:HyperLink>
                             <ul>
                                 <li>
-                                    <asp:HyperLink ID="HyperLink15" runat="server">HyperLink</asp:HyperLink></li>
+                                    <asp:HyperLink ID="HyperLink15" runat="server" NavigateUrl="~/Artist/ArtistProfile.aspx">View Profile</asp:HyperLink></li>
                                 <li>
-                                    <asp:HyperLink ID="HyperLink16" runat="server">HyperLink</asp:HyperLink></li>
+                                    <asp:HyperLink ID="HyperLink16" runat="server" NavigateUrl="~/Artist/updateProfile.aspx">Edit Profile</asp:HyperLink></li>
+                                <li>
+                                    <asp:HyperLink ID="HyperLink17" runat="server" NavigateUrl="~/Artist/ArtistGallery.aspx">My Gallery</asp:HyperLink></li>
+                                <li>
+                                    <asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl="~/Artist/UploadPicture.aspx">Upload Art</asp:HyperLink></li>
                                 <li>
                                     <asp:LoginStatus ID="LoginStatus1" runat="server"/>
                                 <li>
                             </ul>
                         </li>
                         <li>
-                            <asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl="~/ShoppingCart.aspx"><span class="icon fa-shopping-cart" style="width:30px; height:30px"></span>Shopping Cart</asp:HyperLink></li>
+                           </li> 
                     </ul>
                 </nav>
             </header>

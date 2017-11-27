@@ -166,13 +166,13 @@ namespace WebApplication3.Artist {
         protected global::System.Web.UI.WebControls.HyperLink HyperLink16;
         
         /// <summary>
-        /// LoginStatus1 control.
+        /// HyperLink17 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LoginStatus LoginStatus1;
+        protected global::System.Web.UI.WebControls.HyperLink HyperLink17;
         
         /// <summary>
         /// HyperLink1 control.
@@ -182,6 +182,15 @@ namespace WebApplication3.Artist {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.HyperLink HyperLink1;
+        
+        /// <summary>
+        /// LoginStatus1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LoginStatus LoginStatus1;
         
         /// <summary>
         /// ContentPlaceHolder1 control.

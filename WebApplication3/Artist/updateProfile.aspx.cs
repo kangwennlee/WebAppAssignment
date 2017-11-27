@@ -97,7 +97,7 @@ namespace WebApplication3.Artist
                 com2.ExecuteNonQuery();
                 con.Close();
 
-                Response.Redirect("ArtistProfile.aspx");
+                Response.Redirect("ViewProfile.aspx");
             }
         }
     }

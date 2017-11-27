@@ -84,9 +84,10 @@
     <Content Include="App_Data\Database1_log.ldf">
       <DependentUpon>Database1.mdf</DependentUpon>
     </Content>
+    <Content Include="Artist\ArtistGallery.aspx" />
     <Content Include="Artist\ArtistProfile.aspx" />
     <Content Include="Artist\updateProfile.aspx" />
-    <Content Include="Artist\uploadImage.aspx" />
+    <Content Include="Artist\UploadPicture.aspx" />
     <Content Include="assets\fonts\fontawesome-webfont.eot" />
     <Content Include="assets\fonts\fontawesome-webfont.ttf" />
     <Content Include="assets\fonts\fontawesome-webfont.woff" />
@@ -171,6 +172,13 @@
     <Content Include="SignUp.aspx" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Artist\ArtistGallery.aspx.cs">
+      <DependentUpon>ArtistGallery.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Artist\ArtistGallery.aspx.designer.cs">
+      <DependentUpon>ArtistGallery.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Artist\ArtistProfile.aspx.cs">
       <DependentUpon>ArtistProfile.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -192,12 +200,12 @@
     <Compile Include="Artist\updateProfile.aspx.designer.cs">
       <DependentUpon>updateProfile.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Artist\uploadImage.aspx.cs">
-      <DependentUpon>uploadImage.aspx</DependentUpon>
+    <Compile Include="Artist\UploadPicture.aspx.cs">
+      <DependentUpon>UploadPicture.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Artist\uploadImage.aspx.designer.cs">
-      <DependentUpon>uploadImage.aspx</DependentUpon>
+    <Compile Include="Artist\UploadPicture.aspx.designer.cs">
+      <DependentUpon>UploadPicture.aspx</DependentUpon>
     </Compile>
     <Compile Include="Customer\CusMain.Master.cs">
       <DependentUpon>CusMain.Master</DependentUpon>
