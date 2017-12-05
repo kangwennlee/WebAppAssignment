@@ -16,15 +16,7 @@ namespace WebApplication3.Customer
         {
             string strCon = ConfigurationManager.ConnectionStrings["WebConfigConString"].ConnectionString;
             String Id = Membership.GetUser().ProviderUserKey.ToString();
-            using (SqlConnection con = new SqlConnection(strCon))
-            {
-                SqlCommand cmd = new SqlCommand("SELECT * FROM [dbo].[OrderDetail] d,[dbo].[Order] o WHERE o.orderId = d.orderId AND o.custId = '" + Id + "';", con);
-                con.Open();
-                SqlDataReader rdr = cmd.ExecuteReader();
-                DataList1.DataSource = rdr;
-                DataList1.DataBind();
-            }
-                
+            Session["memberID"] = Id;       
         }
     }
 }
