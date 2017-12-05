@@ -3,6 +3,8 @@
 <asp:Content ID="Content3" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
     <div id="main" class="wrapper style1">
         <div class="container">
+            <table>
+
             <asp:DataList ID="DataList1" runat="server">
                 <HeaderTemplate>
                     <table>
@@ -21,6 +23,8 @@
                     </tr>
                 </ItemTemplate>
             </asp:DataList>
+                
+            </table>
         </div>
     </div>
 </asp:Content>

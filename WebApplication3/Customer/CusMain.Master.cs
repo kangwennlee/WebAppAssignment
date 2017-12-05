@@ -8,6 +8,8 @@ using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
 using System.Web.Security;
+using System.Net.Mail;
+using System.Net;
 
 namespace WebApplication3.Customer
 {
@@ -166,7 +168,35 @@ namespace WebApplication3.Customer
                 }
             }
             Session["ShoppingCart"] = null;
+
             Response.Redirect("PurchaseHistory.aspx");
+        }
+        private void sendEmail(String toEmail, String toName)
+        {
+            var fromAddress = new MailAddress("leekw-wp15@student.tarc.edu.my", "National Gallery Singapore");
+            var toAddress = new MailAddress(toEmail,toName);
+            const string fromPassword = "password";
+            const string subject = "Order";
+            const string body = "Thanks for shopping with us! Here's your receipt: ";
+
+            var smtp = new SmtpClient
+            {
+                Host = "smtp.gmail.com",
+                Port = 587,
+                EnableSsl = true,
+                DeliveryMethod = SmtpDeliveryMethod.Network,
+                Credentials = new NetworkCredential(fromAddress.Address, fromPassword),
+                Timeout = 20000
+            };
+            using(var message= new MailMessage(fromAddress, toAddress)
+            {
+                Subject = subject,
+                Body = body
+
+            })
+            {
+                smtp.Send(message);
+            }
         }
     }
 }
