@@ -74,7 +74,7 @@ namespace WebApplication3.Customer
             string Id = Membership.GetUser().ProviderUserKey.ToString();
             DateTime date = DateTime.Now;
 
-            string retOrderId = "SELECT orderId FROM [dbo].[Order] WHERE custId='" + Id + "';";
+            string retOrderId = "SELECT MAX(orderId) FROM [dbo].[Order] WHERE (custId='" + Id + "');";
             DataTable dtOrderId = new DataTable();
             SqlDataAdapter da = new SqlDataAdapter(retOrderId, con);
 
@@ -96,8 +96,8 @@ namespace WebApplication3.Customer
                 };
                 cmd.Parameters.Add(paramFirstName);
                 con.Open();
-                da.Fill(dtOrderId);
                 cmd.ExecuteNonQuery();
+                da.Fill(dtOrderId);
                 con.Close();
                 Response.Write("<script>alert('Successfully added order !');</script>");
             }
@@ -105,12 +105,10 @@ namespace WebApplication3.Customer
             {
                 Response.Write("<script>alert('Failed to added order !');</script>");
             }
-
-
-            string orderId = dtOrderId.Rows[0]["orderId"].ToString();
+           
+            string orderId = dtOrderId.Rows[0]["column1"].ToString();
             DataTable dtPicture = (DataTable)Session["ShoppingCart"];
-
-
+            
             for (int i = 0; i < dtPicture.Rows.Count; i++)
             {
                 string pictureId = (string)dtPicture.Rows[i]["pictureId"];
