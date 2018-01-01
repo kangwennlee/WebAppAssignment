@@ -168,7 +168,7 @@ namespace WebApplication3.Customer
                 }
             }
             Session["ShoppingCart"] = null;
-
+            //sendEmail("kangwenn@gmail.com", "Lee Kang Wenn");
             Response.Redirect("PurchaseHistory.aspx");
         }
         private void sendEmail(String toEmail, String toName)
