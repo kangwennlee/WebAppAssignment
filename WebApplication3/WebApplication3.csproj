@@ -101,6 +101,7 @@
     <Content Include="assets\sass\libs\_skel.scss" />
     <Content Include="assets\sass\libs\_vars.scss" />
     <Content Include="Customer\CustomerProfile.aspx" />
+    <Content Include="Customer\paymentPage.aspx" />
     <Content Include="Customer\updateProfile.aspx" />
     <Content Include="Customer\ShoppingCart.ascx" />
     <Content Include="Customer\WishList.aspx" />
@@ -221,6 +222,13 @@
     </Compile>
     <Compile Include="Customer\CustomerProfile.aspx.designer.cs">
       <DependentUpon>CustomerProfile.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Customer\paymentPage.aspx.cs">
+      <DependentUpon>paymentPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Customer\paymentPage.aspx.designer.cs">
+      <DependentUpon>paymentPage.aspx</DependentUpon>
     </Compile>
     <Compile Include="Customer\updateProfile.aspx.cs">
       <DependentUpon>updateProfile.aspx</DependentUpon>
